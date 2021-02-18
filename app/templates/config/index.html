@@ -1,0 +1,10 @@
+{% extends '/config/base.html' %}
+
+{% block content %}
+<h3>系统配置项如下：</h3>
+
+    {% for k,v in config.items() %}
+        <p>{{ k }} : {{ v }}</p>
+    {% endfor %}
+
+{% endblock%}

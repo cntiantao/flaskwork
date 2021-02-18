@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <a href="/config/showDog">
+        <img src="{{ url_for('static',filename='dog.jpg') }}">
+    </a>
+
+</div>
+<div>
+    {% block content %}
+    这里是模板里面待填充的内容： content
+    {% endblock %}
+</div>
+<div>
+    {% block footer %}
+    这里是模板里面待填充的内容： footer
+    {% endblock %}
+</div>
+
+</body>
+</html>

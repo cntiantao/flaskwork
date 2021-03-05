@@ -27,7 +27,7 @@ class DevelopmentConfig(BaseConfig):
     DEBUG = True
     ENV = 'development'
     # 数据库URI
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:123456@172.17.180.2/cleven_development'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:root@localhost/lecar'
 
     # 也可如下来写，比较清晰
     # SQLALCHEMY_DATABASE_URI = "mysql+pymysql://{username}:{password}@{hostname}/{databasename}".format(username="xxxx", password="123456", hostname="172.17.180.2", databasename="cleven_development")
@@ -37,6 +37,12 @@ class DevelopmentConfig(BaseConfig):
 
     # 表示cookie的有效期
     PERMANENT_SESSION_LIFETIME = 7
+
+    # wtform是否开启 CSRF 验证保护的开关，默认为True
+    WTF_CSRF_ENABLED = True
+
+    # 上传文件时，默认可以接受的文件后缀类型
+    ALLOWED_EXTENSIONS = ['jpg', 'jpeg', 'png', 'gif']
 
 
 # 测试环境的配置

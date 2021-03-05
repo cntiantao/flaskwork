@@ -1,0 +1,32 @@
+{% extends '/wtform/_base.html' %}
+{% block style %}
+
+{% endblock style %}
+
+{% block body %}
+    <body>
+    <h1>登陆框</h1>
+    <form method='post'>
+        {{ loginForm.username.label('用户名') }}
+        {{ loginForm.username(style='width:200px',class_='bar') }}<br/>
+        {{ loginForm.submit }}
+    </form>
+    </body>
+{% endblock body %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

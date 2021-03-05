@@ -1,0 +1,27 @@
+{% extends '/adminUi/index/base/_base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <script language="javascript">
+        $(function () {
+            $('.error').css({'position': 'absolute', 'left': ($(window).width() - 490) / 2});
+            $(window).resize(function () {
+                $('.error').css({'position': 'absolute', 'left': ($(window).width() - 490) / 2});
+            })
+        });
+    </script>
+{% endblock head %}
+
+{% block body %}
+    <body style="background:#edf6fa;">
+    <div style="margin-top: 100px;margin-left: 400px">
+        <span style="font-size: 80px;font-family: '微软雅黑';color: #056CAE">欢迎使用云际信息管理后台！</span>
+    </div>
+    </body>
+{% endblock body %}
+
+
+
+
+
+

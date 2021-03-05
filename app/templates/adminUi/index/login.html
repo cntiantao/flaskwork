@@ -1,0 +1,62 @@
+﻿{% extends '/adminUi/index/base/_base.html' %}
+
+{% block head %}
+    {{ super() }}
+
+    {% block title %}
+        <title>用户登陆</title>
+    {% endblock title %}
+    <script language="javascript">
+        $(function () {
+            $('.loginbox').css({'position': 'absolute', 'left': ($(window).width() - 692) / 2});
+            $(window).resize(function () {
+                $('.loginbox').css({'position': 'absolute', 'left': ($(window).width() - 692) / 2});
+            });
+        });
+    </script>
+{% endblock head -%}
+
+{% block body %}
+    <body style="background-color:#1c77ac; background-image:url({{ url_for('static',filename='adminUi/img/light.png') }}); background-repeat:no-repeat; background-position:center top; overflow:hidden;">
+    <div id="mainBody">
+        <div id="cloud1" class="cloud"></div>
+        <div id="cloud2" class="cloud"></div>
+    </div>
+
+    <div class="logintop">
+        <ul>
+            <li><a href="/adminUi/index/main.html">回首页</a></li>
+            <li><a href="#">帮助</a></li>
+            <li><a href="#">关于</a></li>
+        </ul>
+    </div>
+
+    <div class="loginbody">
+        <span class="systemlogo"></span>
+        <form method="post" enctype="multipart/form-data">
+            {{ formLogin.csrf_token }}
+            <div class="loginbox">
+                <ul>
+                    <li>{{ formLogin.username(class='loginuser',placeholder='账号') }}</li>
+                    <li>{{ formLogin.password(class='loginpwd',placeholder='密码') }}</li>
+{#                    <li>{{ formLogin.photo() }}</li>#}
+{#                    <li>{{ formLogin.otherFiles() }}</li>#}
+                    <li class="sbmt">{{ formLogin.smtLogin(class='loginbtn') }}
+                        <label>
+                            <input name="" type="checkbox" value="" checked="checked" href="#"><a>记住用户名</a>
+                        </label>
+                        <a href="#" style="margin-left: 30px;"><u>忘记密码？</u></a>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+    {% for msg in get_flashed_messages() %}
+        {{ msg }}
+    {% endfor %}
+
+
+    <div class="loginbm">版权所有 2021 lecar.ren</div>
+{% endblock body -%}
+
+

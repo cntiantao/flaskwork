@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        {% block title %} {% endblock title %}
+        <link rel="shortcut icon" href="{{ url_for('static',filename='adminUi/img/lecar.ico') }}"/>
+        {% block style %}
+            <link href="{{ url_for('static',filename='adminUi/css/style.css') }}" rel="stylesheet" type="text/css"/>
+        {% endblock style %}
+
+        {% block script %}
+            <script type="text/javascript" src="{{ url_for('static',filename='adminUi/js/jquery.js') }}"></script>
+        {% endblock script %}
+
+    </head>
+{% endblock head %}
+{% block body %}
+    <body>
+
+    </body>
+{% endblock body %}
+</html>

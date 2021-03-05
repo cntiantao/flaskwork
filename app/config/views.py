@@ -42,7 +42,7 @@ def config_templates_base():
 
 @config.route('/config/index')
 def config_templates_index():
-    return render_template('/config/index.html', config=app.config)
+    return render_template('/config/home.html', config=app.config)
 
 
 @config.route('/config/detail')

@@ -1,0 +1,62 @@
+{% extends '/adminUi/index/base/_base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <script type="text/javascript">
+        $(function () {
+            //顶部导航切换
+            // 第一步：改变顶部菜单样式，同时将 a 标签的 href 地址在 target 中打开
+
+            $(".nav li a").click(function () {
+                $(".nav li a.selected").removeClass("selected")
+                $(this).addClass("selected");
+
+                // 第二步：重新加载 leftFrame地址，并把顶部menu 的 id 传到left.html 中去
+                parent.document.getElementById('leftFrame').src = '/adminUi/index/left/' + $(this).attr('data-top_menu_id')
+            })
+        })
+    </script>
+{% endblock head %}
+
+{% block body %}
+    <body style="background:url({{ url_for('static',filename='adminUi/img/topbg.gif') }}) repeat-x;">
+
+    <div class="topleft">
+        <a href="/adminUi/index/main.html" target="_parent"><img src="{{ url_for('static',filename='adminUi/img/logo.png') }}" title="系统首页"/></a>
+    </div>
+
+    <ul class="nav">
+        {% for menu in menus %}
+            <li>
+                <a href="{{ menu.homepage }}" target="rightFrame" class="{{ menu.selected }}" data-top_menu_id="{{ menu.id }}">
+                    <img src="{{ url_for('static',filename=menu.icon) }}" title="{{ menu.title }}" style="height: 45px;"/>
+                    <h2>{{ menu.title }}</h2>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <div class="topright">
+        <ul>
+            <li><span><img src="{{ url_for('static',filename='adminUi/img/help.png') }}" title="帮助" class="helpimg"/></span><a href="#">帮助</a></li>
+            <li><a href="#">关于</a></li>
+            <li><a href="/adminUi/index/login.html" target="_parent">退出</a></li>
+        </ul>
+
+        <div class="user">
+            <span>admin</span>
+            <i>消息</i>
+            <b>5</b>
+        </div>
+
+    </div>
+
+    </body>
+{% endblock body %}
+
+
+
+
+
+
+

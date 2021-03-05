@@ -1,0 +1,46 @@
+{% extends '/adminUi/index/base/_base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <script type="text/javascript">
+        $(function () {
+            //导航切换
+            $(".menuson li").click(function () {
+                $(".menuson li.active").removeClass("active")
+                $(this).addClass("active");
+            });
+
+            $('.title').click(function () {
+                var $ul = $(this).next('ul');
+                $('dd').find('ul').slideUp();
+                if ($ul.is(':visible')) {
+                    $(this).next('ul').slideUp();
+                } else {
+                    $(this).next('ul').slideDown();
+                }
+            });
+        })
+    </script>
+{% endblock head %}
+
+{% block body %}
+    <body style="background:#f0f9fd;">
+    <div class="lefttop"><span style="background: url('{{ url_for('static',filename=leftMenu.icon) }}') no-repeat;background-size:contain;height: 22px;width: 22px"></span>{{ leftMenu.title }}</div>
+
+    <dl class="leftmenu">
+        {% for nav in leftMenu.leftNav %}
+            <dd>
+                <div class="title">
+                    <span><img src="{{ url_for('static',filename=nav.icon) }}"/></span>
+                    {{ nav.title }}
+                </div>
+                <ul class="menuson">
+                    {% for menu in nav.menus %}
+                        <li class="{{ menu.active }}"><cite></cite><a href="{{ menu.url }}" target="rightFrame">{{ menu.title }}</a><i></i></li>
+                    {% endfor %}
+                </ul>
+            </dd>
+        {% endfor %}
+    </dl>
+    </body>
+{% endblock body %}

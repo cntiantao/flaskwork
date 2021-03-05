@@ -1,0 +1,13 @@
+{% for menu2 in menu2s %}
+    <dd>
+        <div class="title">
+            <span><img src="{{ url_for('static',filename='adminUi/img/leftico01.png') }}"/></span>管理信息
+        </div>
+        <ul class="menuson">
+            {% for menu3 in menu3s %}
+                <li class="active"><cite></cite><a href="/adminUi/index/home.html" target="rightFrame">首页模版</a><i></i></li>
+            {% endfor %}
+
+        </ul>
+    </dd>
+{% endfor %}

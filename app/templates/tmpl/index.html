@@ -1,0 +1,45 @@
+{% extends '/tmpl/_base.html' %}
+
+{% block title %}
+    <title>{{ titel }}</title>
+{% endblock title %}
+
+{% block body %}
+    <body>
+        <h1>项目列表</h1>
+        <ul>
+            {% for project in  projects %}
+                <li>{{ loop.index }}:{{ project.pName }}-{{ project.pType }}</li>
+            {% endfor %}
+        </ul>
+
+        {% set nav=[('/tmpl/index','aaaa')] %}
+
+        {{ nav[0] }}
+
+        {{ config }}
+
+        {{ request }}
+
+        {{ session }}
+
+        {{ g }}
+    </body>
+{% endblock body %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
